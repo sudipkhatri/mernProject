@@ -1,0 +1,8 @@
+.btn4 span{
+  transform: translateX(-101%);
+  transition: transform .3s ease-in
+}
+
+.btn4:hover span{
+  transform: translateX(0)
+}
