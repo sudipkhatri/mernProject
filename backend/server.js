@@ -4,11 +4,7 @@ import URI from './db.js';
 import router from './Routes/userRoutes.js';
 import postRouter from './Routes/postRoutes.js';
 import cors from 'cors';
-import * as path from "path";
-import { fileURLToPath } from "url";
-
-
-
+//import * as path from "path";
 
 const app = express();
 app.use(cors());
@@ -19,20 +15,20 @@ URI;
 
 const PORT = process.env.PORT || 5000;
 // server production
-if(process.env.NODE_ENV === "production"){
+// if(process.env.NODE_ENV === "production"){
 
-    const __dirname = path.resolve();
-    app.use(express.static(path.join(__dirname, "/frontend/build")));
-    app.get("*", (req, res)=>{
-        res.sendFile(path.join(__dirname, "frontend", "build", "index.html"))
-    });  
+//     const __dirname = path.resolve();
+//     app.use(express.static(path.join(__dirname, "/frontend/build")));
+//     app.get("*", (req, res)=>{
+//         res.sendFile(path.join(__dirname, "frontend", "build", "index.html"))
+//     });  
    
-}
-else{
-    app.get('*', (req, res)=>{
-        res.send('Api is running.')
-    });
-}
+// }
+// else{
+//     app.get('*', (req, res)=>{
+//         res.send('Api is running.')
+//     });
+// }
 
 app.listen(PORT, ()=>{
     console.log(`server up and running on ${PORT} .`);

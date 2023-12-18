@@ -23,9 +23,14 @@ export default function Auth() {
       const res = await axios.post(
         `http://localhost:5001/api/user/${type}`,
         input
-      );
+      );      
       return res.data;
-    } catch (err) {      
+    } catch (err) {  
+      setInput({
+        name: "",
+        email: "",
+        password: "",
+      });    
       if (err.response && err.response.data) {
         if (err.response.status === 400) {
           setError(err.response.data.message);          
@@ -57,8 +62,12 @@ export default function Auth() {
       <div className="max-w-md w-full mx-auto">
         <div className="bg-white rounded-lg overflow-hidden shadow-2xl">
           <div className="px-8 mt-8">
-            <h2 className="text-3xl font-semibold text-indigo-600 py-2">Login</h2>
-            <p className="text-base font-semibold">If you have an account please login.</p>
+            <h2 className="text-3xl font-semibold text-indigo-600 py-2">
+              Login
+            </h2>
+            <p className="text-base font-semibold">
+              If you have an account please login.
+            </p>
           </div>
           <div className="p-8">
             <form onSubmit={handleSubmit}>
@@ -73,6 +82,7 @@ export default function Auth() {
                   <input
                     type="text"
                     name="name"
+                    value={input.name}
                     onChange={handleChange}
                     required
                     className="block w-full p-3 rounded bg-gray-200"
@@ -89,6 +99,7 @@ export default function Auth() {
                 <input
                   type="email"
                   name="email"
+                  value={input.email}
                   onChange={handleChange}
                   required
                   className="block w-full p-3 rounded bg-gray-200 outline-none border focus:border-indigo-600"
@@ -108,7 +119,8 @@ export default function Auth() {
                 <input
                   type="password"
                   name="password"
-                  onChange={handleChange}
+                  value={input.password}
+                  onChange={handleChange}                  
                   required
                   className="block w-full p-3 rounded bg-gray-200 outline-none border focus:border-indigo-600"
                 />

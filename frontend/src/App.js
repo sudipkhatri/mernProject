@@ -39,8 +39,7 @@ function App() {
         <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/rent" element={<AllProperty />} />
-            <Route path="/buy" element={<AllProperty />} />
+            <Route path="/rent" element={<AllProperty />} />            
             {!isLoggedIn ? (
               <>
                 <Route path="/login" element={<Auth />} />

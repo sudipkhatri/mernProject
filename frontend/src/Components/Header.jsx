@@ -57,7 +57,7 @@ export default function Header() {
                 className="relative p-2 lg:px-4 btn4 overflow-hidden md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300"
               >
                 <span className="absolute inset-x-0 h-[2.5px] bottom-0 bg-black"></span>
-                Rent
+                Rent | Buy
               </Link>
             ) : (
               <Link
@@ -78,15 +78,6 @@ export default function Header() {
               >
                 <span className="absolute inset-x-0 h-[2.5px] bottom-0 bg-black"></span>
                 Add <IoIosAddCircleOutline size={"20px"} />
-              </Link>
-            )}
-            {!userID && (
-              <Link
-                to="/buy"
-                className="relative p-2 lg:px-4 btn4 overflow-hidden md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300"
-              >
-                <span className="absolute inset-x-0 h-[2.5px] bottom-0 bg-black"></span>
-                Buy
               </Link>
             )}
 
